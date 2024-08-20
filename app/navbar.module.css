@@ -1,0 +1,64 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: auto;
+}
+
+.leftContainer {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+.leftTextContainer {
+  margin-top: 0.45em;
+}
+
+.title,
+.titleDescription {
+  margin: 0;
+}
+
+.title {
+  font-size: 1.75rem;
+  line-height: 0.9;
+}
+
+.titleDescription {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.rightContainer {
+  display: flex;
+  align-items: center;
+}
+
+.rightContainer ul {
+  display: flex;
+  gap: 1.3em;
+  margin-right: 1.3em;
+}
+
+.rightContainer li {
+  list-style-type: none;
+}
+
+.rightContainer a {
+  color: var(--text-color);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.03rem;
+}
+
+.rightContainer select {
+  background: none;
+  border: 0.13em solid var(--text-color);
+  color: var(--text-color);
+  border-radius: 0.3em;
+  padding: 0.4em;
+  padding-right: 0.15em;
+  font-size: 1.25rem;
+}
