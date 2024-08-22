@@ -1,6 +1,7 @@
-import Button from "@/components/shared/Button";
+import Button from "@/components/home/button/Button";
 import Image from "next/image";
 import styles from "./share.module.css";
+import { merriweather } from "@/fonts";
 
 export default function Share() {
   return (
@@ -10,9 +11,12 @@ export default function Share() {
         height={360}
         src={"/share.jpg"}
         alt="a family walking together"
+        className={styles.shareImage}
       />
       <div className={styles.textContainer}>
-        <h2>Powiedz o nas w swoim kościele</h2>
+        <h2 className={merriweather.className}>
+          Powiedz o nas w swoim kościele
+        </h2>
         <p>
           Przyczyń się do powstawania nowych par i rodzin. Dzięki twojej pomocy
           portal może zdobyć nowych członków.

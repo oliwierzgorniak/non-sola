@@ -4,6 +4,10 @@
   margin: 5.3rem 0;
 }
 
+.shareImage {
+  border-radius: 1em;
+}
+
 .textContainer h2 {
   font-size: 2rem;
   text-decoration: underline;

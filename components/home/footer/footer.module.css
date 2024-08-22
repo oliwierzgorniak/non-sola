@@ -1,0 +1,39 @@
+.container {
+  background-color: var(--primary-color);
+  width: 100%;
+  padding: 2em;
+}
+
+.innerContainer {
+  max-width: var(--max-width);
+  margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.innerContainer h2 {
+  font-size: 1.5rem;
+  margin-top: 0.1em;
+}
+
+.innerContainer ul {
+  display: flex;
+  gap: 1em;
+}
+
+.innerContainer li {
+  list-style-type: none;
+}
+
+.innerContainer a {
+  color: var(--text-color);
+  font-weight: 700;
+}
