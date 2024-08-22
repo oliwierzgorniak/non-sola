@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  gap: 2em;
+  margin: 5.3rem 0;
+}
+
+.textContainer h2 {
+  font-size: 2rem;
+  text-decoration: underline;
+  text-decoration-color: var(--primary-color);
+  margin-bottom: 0.6em;
+}
+
+.textContainer p {
+  font-size: 1.625rem;
+  max-width: 29rem;
+  margin-bottom: 2em;
+}

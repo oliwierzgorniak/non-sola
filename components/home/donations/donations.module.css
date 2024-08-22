@@ -1,6 +1,6 @@
 .container {
   background-color: var(--primary-color);
-  padding: 5em 0;
+  padding: 5rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
