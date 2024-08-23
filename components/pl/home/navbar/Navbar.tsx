@@ -25,10 +25,10 @@ export default function Navbar() {
       <div className={styles.rightContainer}>
         <ul>
           <li>
-            <Link href="register">rejestracja</Link>
+            <Link href="/pl/register">rejestracja</Link>
           </li>
           <li>
-            <Link href="login">logowanie</Link>
+            <Link href="/pl/login">logowanie</Link>
           </li>
         </ul>
         <select defaultValue={"pl"}>

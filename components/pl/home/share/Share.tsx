@@ -1,4 +1,4 @@
-import Button from "@/components/home/button/Button";
+import Button from "@/components/pl/home/button/Button";
 import Image from "next/image";
 import styles from "./share.module.css";
 import { merriweather } from "@/fonts";

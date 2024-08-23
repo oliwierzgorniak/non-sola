@@ -2,7 +2,7 @@ import { merriweather } from "@/fonts";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./hero.module.css";
-import Button from "@/components/home/button/Button";
+import Button from "@/components/pl/home/button/Button";
 
 export default function Hero() {
   return (
