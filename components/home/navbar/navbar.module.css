@@ -5,7 +5,7 @@
   max-width: var(--max-width);
   margin: auto;
   width: 100%;
-  padding: 1em 2em;
+  padding: 1em var(--horizontal-padding);
 }
 
 .leftContainer {
@@ -26,22 +26,26 @@
 .title {
   font-size: 1.75rem;
   line-height: 0.9;
+  margin-bottom: 0.2em;
 }
 
 .titleDescription {
   font-size: 1.25rem;
   font-weight: 500;
+  line-height: 1;
 }
 
 .rightContainer {
   display: flex;
   align-items: center;
+  margin-left: 2em;
 }
 
 .rightContainer ul {
   display: flex;
   gap: 1.3em;
   margin-right: 1.3em;
+  padding-left: 0;
 }
 
 .rightContainer li {
@@ -63,4 +67,11 @@
   padding: 0.4em;
   padding-right: 0.15em;
   font-size: 1.25rem;
+}
+
+@media screen and (max-width: 534px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1.5em;
+  }
 }

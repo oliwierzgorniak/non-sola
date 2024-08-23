@@ -2,10 +2,13 @@
   display: flex;
   gap: 2em;
   margin: 5.3rem 0;
+  padding: 0 var(--horizontal-padding);
 }
 
 .shareImage {
   border-radius: 1em;
+  width: clamp(10rem, 50vw, 29.188rem);
+  height: 100%;
 }
 
 .textContainer h2 {
@@ -19,4 +22,20 @@
   font-size: 1.625rem;
   max-width: 29rem;
   margin-bottom: 2em;
+}
+
+@media screen and (max-width: 717px) {
+  .container {
+    flex-direction: column;
+    gap: 3.5em;
+  }
+
+  .shareImage {
+    width: 100%;
+    max-width: 33rem;
+  }
+
+  .textContainer p {
+    margin-bottom: 1.4em;
+  }
 }
