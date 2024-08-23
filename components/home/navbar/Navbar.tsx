@@ -10,7 +10,7 @@ export default function Navbar() {
         <Image
           width={59}
           height={67}
-          alt="logo - a cross inside a heart"
+          alt="logo, krzyż w środku serca"
           src={"/logo.svg"}
         />
         <div className={styles.leftTextContainer}>

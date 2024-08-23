@@ -31,7 +31,7 @@ export default function Hero() {
           height={544}
           className={styles.heroImg}
           src={"/hero.png"}
-          alt="a couple hugging each other"
+          alt="przytulająca się para"
         />
       </section>
     </main>

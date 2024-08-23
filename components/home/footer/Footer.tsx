@@ -12,7 +12,7 @@ export default function Footer() {
             width={40}
             height={45}
             src={"/logo.svg"}
-            alt="logo, a cross inside a heart"
+            alt="logo, krzyż w środku serca"
           />
           <h2 className={merriweather.className}>Non Sola</h2>
         </div>

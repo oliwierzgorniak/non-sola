@@ -10,7 +10,7 @@ export default function Share() {
         width={467}
         height={360}
         src={"/share.jpg"}
-        alt="a family walking together"
+        alt="spacerująca rodzina"
         className={styles.shareImage}
       />
       <div className={styles.textContainer}>
