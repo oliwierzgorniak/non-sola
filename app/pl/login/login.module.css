@@ -65,4 +65,13 @@
 .container a {
   color: var(--text-color);
   font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.backLink {
+  position: absolute;
+  top: 1em;
+  left: 2em;
+  color: var(--text-color);
+  font-weight: 500;
 }

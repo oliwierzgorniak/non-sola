@@ -1,9 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./navbar.module.css";
 import { merriweather } from "@/fonts";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
+  const router = useRouter();
   return (
     <nav className={styles.navbar}>
       <div className={styles.leftContainer}>
@@ -31,7 +35,13 @@ export default function Navbar() {
             <Link href="/pl/login">logowanie</Link>
           </li>
         </ul>
-        <select defaultValue={"pl"}>
+        <select
+          onChange={(e) => {
+            const language = e.target.value;
+            router.push("/" + language);
+          }}
+          defaultValue={"pl"}
+        >
           <option value="pl">pl</option>
           <option value="en">en</option>
         </select>
