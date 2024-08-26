@@ -1,0 +1,11 @@
+### signup
+POST http://localhost:3001/api/signup HTTP/1.1
+Content-Type: application/json
+
+{"email": "oliwier@zgorniak.pl", "password": "fsenjk"}
+
+### login
+POST http://localhost:3001/api/login HTTP/1.1
+Content-Type: application/json
+
+{"email": "oliwier@zgorniak.pl", "password": "senjk"}

@@ -14,7 +14,7 @@ const index_1 = require("../index");
 const router = (0, express_1.Router)();
 router.post("/signup", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a, _b;
-    if (!((_a = req.body) === null || _a === void 0 ? void 0 : _a.name) || !((_b = req.body) === null || _b === void 0 ? void 0 : _b.password)) {
+    if (!((_a = req.body) === null || _a === void 0 ? void 0 : _a.email) || !((_b = req.body) === null || _b === void 0 ? void 0 : _b.password)) {
         res
             .status(400)
             .json({ result: "error", content: "Email or password missing" });
@@ -22,7 +22,7 @@ router.post("/signup", (req, res) => __awaiter(void 0, void 0, void 0, function*
     }
     const user = yield index_1.prisma.user.create({
         data: {
-            name: req.body.name,
+            email: req.body.email,
             password: req.body.password,
         },
     });
@@ -35,7 +35,7 @@ router.post("/signup", (req, res) => __awaiter(void 0, void 0, void 0, function*
 }));
 router.post("/login", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a, _b;
-    if (!((_a = req.body) === null || _a === void 0 ? void 0 : _a.name) || !((_b = req.body) === null || _b === void 0 ? void 0 : _b.password)) {
+    if (!((_a = req.body) === null || _a === void 0 ? void 0 : _a.email) || !((_b = req.body) === null || _b === void 0 ? void 0 : _b.password)) {
         res
             .status(400)
             .json({ result: "error", content: "Email or password missing" });
@@ -43,7 +43,7 @@ router.post("/login", (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
     const user = yield index_1.prisma.user.findFirst({
         where: {
-            name: req.body.name,
+            email: req.body.email,
             password: req.body.password,
         },
     });
