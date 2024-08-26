@@ -8,7 +8,7 @@
 .container {
   background-color: var(--primary-color);
   border-radius: 0.5em;
-  padding: 1.5em 2.5em 2em 2.5em;
+  padding: 1.5em 2.2em 1.8em 2.2em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,7 +34,7 @@
 }
 
 .container input {
-  width: 28ch;
+  width: 24ch;
   padding: 0.2em;
   border-radius: 0.2em;
   border: none;
