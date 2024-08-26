@@ -1,9 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./register.module.css";
 import { merriweather } from "@/fonts";
+import { useRouter } from "next/navigation";
+import handleRegistration from "./handleRegistration";
 
 export default function Register() {
+  const router = useRouter();
+
   return (
     <div className={styles.outerContainer}>
       <Link href={"/pl"} className={styles.backLink}>
@@ -15,13 +21,16 @@ export default function Register() {
           <form action="">
             <label htmlFor="email">
               Email
-              <input id="email" type="email" />
+              <input id="email" type="email" name="email" />
             </label>
             <label htmlFor="password">
               Hasło
-              <input id="password" type="password" />
+              <input id="password" type="password" name="password" />
             </label>
-            <button className={styles.button}>
+            <button
+              onClick={(e) => handleRegistration(router, e)}
+              className={styles.button}
+            >
               <Image
                 width={34}
                 height={34}

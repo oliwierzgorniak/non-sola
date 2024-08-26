@@ -34,9 +34,10 @@
 }
 
 .container input {
-  width: 24ch;
-  padding: 0.2em;
+  width: 30ch;
+  padding: 0.5em;
   border-radius: 0.2em;
+  font-size: 1.1rem;
   border: none;
 }
 
@@ -74,4 +75,5 @@
   left: 2em;
   color: var(--text-color);
   font-weight: 500;
+  font-size: 1.2rem;
 }
