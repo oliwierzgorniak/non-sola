@@ -1,0 +1,77 @@
+.outerContainer {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: var(--primary-color);
+  border-radius: 0.5em;
+  padding: 1.5em 2.2em 1.8em 2.2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container h2 {
+  text-decoration: underline;
+  text-decoration-color: var(--background-color);
+  font-size: 1.8rem;
+  margin-bottom: 0.8em;
+}
+
+.container form,
+.container label {
+  display: flex;
+  flex-direction: column;
+}
+
+.container label {
+  font-size: 1.4rem;
+  margin-bottom: 0.7em;
+  font-weight: 500;
+}
+
+.container input {
+  width: 24ch;
+  padding: 0.2em;
+  border-radius: 0.2em;
+  border: none;
+}
+
+.button {
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.6em 1em;
+  padding-left: 0.6em;
+  background-color: var(--attention-color);
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  width: min-content;
+  white-space: nowrap;
+  padding-right: 3.4em;
+  margin: auto;
+  margin-top: 0.8em;
+  margin-bottom: 1.6em;
+}
+
+.container a {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.backLink {
+  position: absolute;
+  top: 1em;
+  left: 2em;
+  color: var(--text-color);
+  font-weight: 500;
+}

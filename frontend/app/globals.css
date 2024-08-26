@@ -1,0 +1,74 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+
+:root {
+  --background-color: #202a44;
+  --text-color: #fffff0;
+  --primary-color: #596b38;
+  --attention-color: #ffd700;
+  --max-width: 1400px;
+  --horizontal-padding: 2em;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  padding: 0.6em 1em;
+  border-radius: 0.75rem;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 790px) {
+  :root {
+    font-size: 13px;
+  }
+}
