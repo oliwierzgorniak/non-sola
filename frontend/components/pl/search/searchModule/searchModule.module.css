@@ -55,3 +55,11 @@
   margin-top: 0.4em;
   margin-left: 0.7em;
 }
+
+.searchList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  padding: 0;
+  gap: 1.5em;
+  padding: 2em 0;
+}

@@ -1,4 +1,17 @@
 import styles from "./searchModule.module.css";
+import Person from "../../../../components/pl/search/person/Person";
+
+const testPersons = [
+  { name: "Wiktoria", age: 21, img: "/people/12.jpg", id: 12 },
+  { name: "Wiktoria", age: 21, img: "/people/12.jpg", id: 12 },
+  { name: "Wiktoria", age: 21, img: "/people/12.jpg", id: 12 },
+  { name: "Wiktoria", age: 21, img: "/people/12.jpg", id: 12 },
+  { name: "Wiktoria", age: 21, img: "/people/12.jpg", id: 12 },
+  { name: "Wiktoria", age: 21, img: "/people/12.jpg", id: 12 },
+  { name: "Wiktoria", age: 21, img: "/people/12.jpg", id: 12 },
+  { name: "Wiktoria", age: 21, img: "/people/12.jpg", id: 12 },
+  { name: "Wiktoria", age: 21, img: "/people/12.jpg", id: 12 },
+];
 
 export default function SearchModule() {
   return (
@@ -31,7 +44,13 @@ export default function SearchModule() {
         </form>
       </section>
 
-      <article></article>
+      <article>
+        <ul className={styles.searchList}>
+          {testPersons.map(({ name, age, img, id }) => (
+            <Person name={name} age={age} img={img} id={id} key={img} />
+          ))}
+        </ul>
+      </article>
     </main>
   );
 }
