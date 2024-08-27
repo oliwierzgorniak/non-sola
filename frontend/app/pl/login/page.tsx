@@ -1,9 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./login.module.css";
 import { merriweather } from "@/fonts";
+import handleLogin from "./handleLogin";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function Register() {
+  const router = useRouter();
+  const [error, setError] = useState("");
+
   return (
     <div className={styles.outerContainer}>
       <Link href={"/pl"} className={styles.backLink}>
@@ -15,13 +23,17 @@ export default function Register() {
           <form action="">
             <label htmlFor="email">
               Email
-              <input id="email" type="email" />
+              <input id="email" type="email" name="email" />
             </label>
             <label htmlFor="password">
               Hasło
-              <input id="password" type="password" />
+              <input id="password" type="password" name="password" />
             </label>
-            <button className={styles.button}>
+            {error && <span className={styles.error}>{error}</span>}
+            <button
+              onClick={(e) => handleLogin(router, e, setError)}
+              className={styles.button}
+            >
               <Image
                 width={34}
                 height={34}
