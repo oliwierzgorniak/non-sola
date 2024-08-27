@@ -1,0 +1,57 @@
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  padding: 5em var(--horizontal-padding);
+}
+
+.filtersContainer {
+  background-color: var(--primary-color);
+  border-radius: 0.4em;
+}
+
+.filtersContainer form {
+  width: min-content;
+  display: flex;
+  gap: 2em;
+  padding: 1.3em 1.4em 2em 1.4em;
+  align-items: center;
+  margin: auto;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 1.15rem;
+  margin-bottom: 0.2em;
+  display: block;
+}
+
+.filtersContainer input {
+  border-radius: 0.1em;
+  border: none;
+}
+
+.ageContainer,
+.distanceContainer {
+  display: flex;
+  gap: 0.2em;
+  align-items: center;
+}
+
+.ageContainer input {
+  width: 5ch;
+}
+
+.distanceContainer input {
+  width: 7ch;
+}
+
+.searchButton {
+  padding: 0.4em 0.6em;
+  height: min-content;
+  font-size: 1.1rem;
+  background-color: var(--primary-color-variation);
+  color: var(--text-color);
+  border-radius: 0.25em;
+  margin-top: 0.4em;
+  margin-left: 0.7em;
+}
