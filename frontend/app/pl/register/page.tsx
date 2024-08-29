@@ -6,9 +6,11 @@ import styles from "./register.module.css";
 import { merriweather } from "@/fonts";
 import { useRouter } from "next/navigation";
 import handleRegistration from "./handleRegistration";
+import { useState } from "react";
 
 export default function Register() {
   const router = useRouter();
+  const [error, setError] = useState<string>("");
 
   return (
     <div className={styles.outerContainer}>
@@ -31,8 +33,9 @@ export default function Register() {
               Hasło
               <input id="password" type="password" name="password" />
             </label>
+            {error && <span className={styles.error}>{error}</span>}
             <button
-              onClick={(e) => handleRegistration(router, e)}
+              onClick={(e) => handleRegistration(router, e, setError)}
               className={styles.button}
             >
               <Image

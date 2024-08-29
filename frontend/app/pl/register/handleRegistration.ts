@@ -1,10 +1,11 @@
-import { MouseEvent } from "react";
+import { Dispatch, MouseEvent, SetStateAction } from "react";
 import registerFetcher from "../../../fetchers/registerFetcher";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 export default async function handleRegistration(
   router: AppRouterInstance,
-  e: MouseEvent
+  e: MouseEvent,
+  setError: Dispatch<SetStateAction<string>>
 ) {
   e.preventDefault();
   const $button = e.target as HTMLButtonElement;
@@ -24,5 +25,8 @@ export default async function handleRegistration(
 
   if (data.result == "success") {
     router.push("/pl/search");
+  } else {
+    // @ts-ignore
+    setError(data.content);
   }
 }
