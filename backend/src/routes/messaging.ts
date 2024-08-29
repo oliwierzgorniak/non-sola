@@ -16,7 +16,7 @@ router.get("/chats", async (req, res) => {
     return;
   }
 
-  let chatsUsers = await Promise.all(
+  const chatsUsers = await Promise.all(
     user.chats.map(async (userId) => {
       const chatUser = await prisma.user.findFirst({
         where: {
@@ -29,10 +29,10 @@ router.get("/chats", async (req, res) => {
   );
 
   const chatsUsersNoNulls = chatsUsers.filter((u) => !!u);
-  const filteredChatsUsers = chatsUsersNoNulls.map(({ id, name }) => {
-    id;
-    name;
-  });
+  const filteredChatsUsers = chatsUsersNoNulls.map(({ id, name }) => ({
+    id: id,
+    name: name,
+  }));
 
   res.json({ result: "success", content: filteredChatsUsers });
 });

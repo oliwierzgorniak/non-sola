@@ -6,7 +6,7 @@ type Result = {
 };
 
 export default async function loginFetcher(email: string, password: string) {
-  const res = await fetch(SERVER_URL + "/api/login", {
+  const res = await fetch(SERVER_URL + "/auth/login", {
     method: "post",
     credentials: "include",
     headers: {

@@ -1,0 +1,22 @@
+.container {
+  background-color: var(--primary-color);
+  padding: 1em;
+  border-radius: 0.4em;
+  min-height: 100%;
+}
+
+.container ul {
+  padding: 0;
+}
+
+.container li {
+  list-style-type: none;
+}
+
+.container button {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 18ch;
+  overflow: hidden;
+  border-radius: 0.4em;
+}

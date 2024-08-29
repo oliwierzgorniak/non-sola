@@ -29,10 +29,13 @@ export default function Navbar() {
       <div className={styles.rightContainer}>
         <ul>
           <li>
-            <Link href="/pl/register">wiadomości</Link>
+            <Link href="/pl/search">szukaj</Link>
           </li>
           <li>
-            <Link href="/pl/login">profil</Link>
+            <Link href="/pl/messages">wiadomości</Link>
+          </li>
+          <li>
+            <Link href="/pl/profile">profil</Link>
           </li>
         </ul>
         <select

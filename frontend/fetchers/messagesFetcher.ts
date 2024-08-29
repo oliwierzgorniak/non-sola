@@ -1,13 +1,13 @@
 import { SERVER_URL } from "../consts";
 
-export type Chat = {
-  id: number;
-  name: string;
+export type Message = {
+  isAuthors: boolean;
+  content: string;
 };
 
 type Result = {
   result: "success" | "error";
-  content: string | Chat[];
+  content: string | Message[];
 };
 
 export default async function chatsFetcher() {
