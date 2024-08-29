@@ -6,7 +6,8 @@ import { PrismaClient } from "@prisma/client";
 import session from "express-session";
 import { createClient } from "redis";
 import RedisStore from "connect-redis";
-import apiRouter from "./routes/api";
+import authRouter from "./routes/auth";
+import messagingRouter from "./routes/messaging";
 
 const app = express();
 app.set("trust proxy", 1);
@@ -22,21 +23,19 @@ const prisma = new PrismaClient();
 const redisClient = createClient();
 redisClient.connect().catch(console.error);
 
-// Initialize store.
 const redisStore = new RedisStore({
   client: redisClient,
   disableTouch: true,
 });
 
-// Initialize session storage.
 const sessionMiddleware = session({
   name: "qid",
   store: redisStore,
   cookie: {
     maxAge: 1000 * 60 * 60 * 24 * 365 * 10, // 10 years
     httpOnly: false,
-    sameSite: "lax", // csrf
-    secure: false, // cookie only works in https
+    sameSite: "lax",
+    secure: false,
   },
   saveUninitialized: false,
   secret: "bhkserbfsekbfkbej",
@@ -45,7 +44,8 @@ const sessionMiddleware = session({
 app.use(sessionMiddleware);
 
 app.use(express.json());
-app.use("/api", apiRouter);
+app.use("/auth", authRouter);
+app.use("/messaging", messagingRouter);
 
 server.listen(process.env.PORT, () => {
   console.log(`server running at http://localhost:${process.env.PORT}`);

@@ -16,9 +16,13 @@ export default async function handleRegistration(
   }
 
   const formData = new FormData($form);
+  const name = formData.get("name")?.toString() as string;
   const email = formData.get("email")?.toString() as string;
   const password = formData.get("password")?.toString() as string;
 
-  const data = await registerFetcher(email, password);
-  router.push("/pl/search");
+  const data = await registerFetcher(name, email, password);
+
+  if (data.result == "success") {
+    router.push("/pl/search");
+  }
 }

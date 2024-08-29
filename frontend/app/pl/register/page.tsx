@@ -19,6 +19,10 @@ export default function Register() {
         <article className={styles.container}>
           <h2 className={merriweather.className}>Rejestracja</h2>
           <form action="">
+            <label htmlFor="name">
+              Imię
+              <input id="name" name="name" />
+            </label>
             <label htmlFor="email">
               Email
               <input id="email" type="email" name="email" />

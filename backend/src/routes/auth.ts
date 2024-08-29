@@ -3,17 +3,18 @@ import { prisma } from "../index";
 const router = Router();
 
 router.post("/signup", async (req, res) => {
-  if (!req.body?.email || !req.body?.password) {
+  if (!req.body?.email || !req.body?.password || !req.body?.name) {
     res
       .status(400)
-      .json({ result: "error", content: "Email or password missing" });
+      .json({ result: "error", content: "Email, password or name missing" });
     return;
   }
 
   const user = await prisma.user.create({
     data: {
-      email: req.body.email,
-      password: req.body.password,
+      email: req.body.email as string,
+      name: req.body.name as string,
+      password: req.body.password as string,
     },
   });
 

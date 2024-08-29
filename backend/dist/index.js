@@ -12,7 +12,8 @@ const client_1 = require("@prisma/client");
 const express_session_1 = __importDefault(require("express-session"));
 const redis_1 = require("redis");
 const connect_redis_1 = __importDefault(require("connect-redis"));
-const api_1 = __importDefault(require("./routes/api"));
+const auth_1 = __importDefault(require("./routes/auth"));
+const messaging_1 = __importDefault(require("./routes/messaging"));
 const app = (0, express_1.default)();
 app.set("trust proxy", 1);
 const corsOptions = {
@@ -26,20 +27,18 @@ exports.prisma = prisma;
 const redisClient = (0, redis_1.createClient)();
 exports.redisClient = redisClient;
 redisClient.connect().catch(console.error);
-// Initialize store.
 const redisStore = new connect_redis_1.default({
     client: redisClient,
     disableTouch: true,
 });
-// Initialize session storage.
 const sessionMiddleware = (0, express_session_1.default)({
     name: "qid",
     store: redisStore,
     cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 365 * 10, // 10 years
         httpOnly: false,
-        sameSite: "lax", // csrf
-        secure: false, // cookie only works in https
+        sameSite: "lax",
+        secure: false,
     },
     saveUninitialized: false,
     secret: "bhkserbfsekbfkbej",
@@ -47,7 +46,8 @@ const sessionMiddleware = (0, express_session_1.default)({
 });
 app.use(sessionMiddleware);
 app.use(express_1.default.json());
-app.use("/api", api_1.default);
+app.use("/auth", auth_1.default);
+app.use("/messaging", messaging_1.default);
 server.listen(process.env.PORT, () => {
     console.log(`server running at http://localhost:${process.env.PORT}`);
 });
