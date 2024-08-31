@@ -1,7 +1,7 @@
 import { SERVER_URL } from "../consts";
 
 export type Message = {
-  isAuthors: boolean;
+  isUsers: boolean;
   content: string;
 };
 
@@ -10,10 +10,13 @@ type Result = {
   content: string | Message[];
 };
 
-export default async function chatsFetcher() {
-  const res = await fetch(SERVER_URL + "/messaging/chats", {
-    credentials: "include",
-  });
+export default async function messagesFetcher(contactId: number) {
+  const res = await fetch(
+    SERVER_URL + "/messaging/messages?contactId=" + contactId,
+    {
+      credentials: "include",
+    }
+  );
   const result = (await res.json()) as Result;
   return result;
 }

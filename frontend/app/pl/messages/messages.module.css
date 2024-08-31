@@ -8,6 +8,8 @@
 .chatContainer {
   display: grid;
   grid-template-columns: auto 1fr;
-  padding: 4em var(--horizontal-padding);
+  padding: var(--horizontal-padding);
+  padding-top: 3.7em;
   height: 100%;
+  gap: 1em;
 }

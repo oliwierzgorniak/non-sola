@@ -44,12 +44,14 @@ h6 {
 
 :root {
   --background-color: #202a44;
+  --background-color-variation: #35415f;
   --text-color: #fffff0;
   --primary-color: #596b38;
   --primary-color-variation: #43502a;
   --attention-color: #ffd700;
   --max-width: 1300px;
   --horizontal-padding: 2em;
+  --border-radius: 0.4rem;
 }
 
 body {

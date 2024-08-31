@@ -15,7 +15,7 @@ export default function Messages() {
     <div className={styles.container}>
       <Navbar />
       <article className={styles.chatContainer}>
-        <Sidebar />
+        <Sidebar setSelectedChat={setSelectedChat} />
         {selectedChat ? (
           <Chat selectedChat={selectedChat} />
         ) : (

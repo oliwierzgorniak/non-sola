@@ -37,4 +37,41 @@ router.get("/chats", async (req, res) => {
   res.json({ result: "success", content: filteredChatsUsers });
 });
 
+router.get("/messages", async (req, res) => {
+  // @ts-ignore
+  const userId = req.session.userId as number | undefined;
+  const contactId = Number(req.query.contactId);
+
+  if (!userId) {
+    res.json({ result: "error", content: "No user id" });
+    return;
+  }
+
+  if (!contactId) {
+    res.json({ result: "error", content: "Receipient id not provided" });
+    return;
+  }
+
+  const messages = await prisma.message.findMany({
+    where: {
+      OR: [
+        {
+          author: userId,
+          receipient: contactId,
+        },
+        {
+          receipient: userId,
+          author: contactId,
+        },
+      ],
+    },
+  });
+
+  const dataToSend = messages.map((message) => ({
+    isUsers: userId == message.author,
+    content: message.content,
+  }));
+
+  res.json({ result: "success", content: dataToSend });
+});
 export default router;

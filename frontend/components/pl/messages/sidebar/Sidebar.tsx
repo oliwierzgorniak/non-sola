@@ -2,8 +2,13 @@ import chatsFetcher from "@/fetchers/chatsFetcher";
 import useSWR from "swr";
 import styles from "./sidebar.module.css";
 import { Chat } from "../../../../fetchers/chatsFetcher";
+import { Dispatch, SetStateAction } from "react";
 
-export default function Sidebar() {
+type SidebarProps = {
+  setSelectedChat: Dispatch<SetStateAction<Chat | null>>;
+};
+
+export default function Sidebar({ setSelectedChat }: SidebarProps) {
   const { data, isLoading } = useSWR("/messaging/chats", chatsFetcher);
 
   if (isLoading || data?.result == "error") return;
@@ -15,7 +20,7 @@ export default function Sidebar() {
       <ul>
         {users.map((user) => (
           <li key={user.id}>
-            <button>Karol</button>
+            <button onClick={() => setSelectedChat(user)}>Karol</button>
           </li>
         ))}
       </ul>
