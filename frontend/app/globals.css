@@ -46,7 +46,7 @@ h6 {
   --background-color: #202a44;
   --background-color-variation: #35415f;
   --text-color: #fffff0;
-  --primary-color: #596b38;
+  --primary-color: #485829;
   --primary-color-variation: #43502a;
   --attention-color: #ffd700;
   --max-width: 1300px;
@@ -64,7 +64,7 @@ body {
 
 button {
   padding: 0.6em 1em;
-  border-radius: 0.75rem;
+  border-radius: var(--border-radius);
   border: none;
   font-weight: 700;
   cursor: pointer;

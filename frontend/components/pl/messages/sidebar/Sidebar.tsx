@@ -11,7 +11,7 @@ type SidebarProps = {
 export default function Sidebar({ setSelectedChat }: SidebarProps) {
   const { data, isLoading } = useSWR("/messaging/chats", chatsFetcher);
 
-  if (isLoading || data?.result == "error") return;
+  if (isLoading || data?.result == "error") return null;
 
   const users = data?.content as Chat[];
 
