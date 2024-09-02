@@ -4,6 +4,8 @@
   border-radius: var(--border-radius);
   grid-template-rows: auto 1fr auto;
   gap: 1em;
+  max-height: 100%;
+  overflow: hidden;
 }
 
 .nameContainer {
@@ -11,6 +13,51 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.messagesContainer {
+  padding: 0.8em 0.3em 0.8em 0.8em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  max-height: 100%;
+  overflow-y: scroll;
+}
+
+.messagesContainer ul {
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+  overflow-y: scroll;
+}
+
+.messagesContainer ul::-webkit-scrollbar-track,
+.messagesContainer ul::-moz-scrollbar-track,
+.messagesContainer ul::-ms-scrollbar-track {
+  background: none;
+}
+
+.messagesContainer ul::-webkit-scrollbar-thumb,
+.messagesContainer ul::-moz-scrollbar-thumb,
+.messagesContainer ul::-ms-scrollbar-thumb {
+  background: red;
+}
+
+.messagesContainer li {
+  list-style-type: none;
+  background-color: var(--background-color);
+  padding: 0.4em 0.8em;
+  border-radius: var(--border-radius);
+}
+
+.isNotUsers {
+  align-self: flex-start;
+}
+
+.isUsers {
+  align-self: flex-end;
+  margin-right: 1em;
 }
 
 .messagesContainer,
@@ -44,4 +91,11 @@
   background-color: var(--text-color);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.messagesContainer .bottomLi {
+  background: none;
+  width: 0;
+  height: 0;
+  padding: 0;
 }

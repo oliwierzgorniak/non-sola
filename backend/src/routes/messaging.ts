@@ -48,7 +48,7 @@ router.get("/messages", async (req, res) => {
   }
 
   if (!contactId) {
-    res.json({ result: "error", content: "Receipient id not provided" });
+    res.json({ result: "error", content: "Contact id not provided" });
     return;
   }
 
@@ -74,4 +74,37 @@ router.get("/messages", async (req, res) => {
 
   res.json({ result: "success", content: dataToSend });
 });
+
+router.post("/sendMessage", async (req, res) => {
+  // @ts-ignore
+  const userId = req.session.userId as number | undefined;
+  const contactId = req.body.contactId as number | undefined;
+  const content = req.body.content as string | undefined;
+
+  if (!userId) {
+    res.json({ result: "error", content: "No user id" });
+    return;
+  }
+
+  if (!contactId) {
+    res.json({ result: "error", content: "Contact id not provided" });
+    return;
+  }
+
+  if (!content) {
+    res.json({ result: "error", content: "Content not provided" });
+    return;
+  }
+
+  await prisma.message.create({
+    data: {
+      author: userId,
+      receipient: contactId,
+      content: content,
+    },
+  });
+
+  res.json({ result: "success", content: "Message sent" });
+});
+
 export default router;

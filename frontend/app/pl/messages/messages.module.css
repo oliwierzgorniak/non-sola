@@ -2,7 +2,7 @@
   display: grid;
   grid-template-rows: auto 1fr;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .chatContainer {
@@ -12,4 +12,5 @@
   padding-top: 3.7em;
   height: 100%;
   gap: 1em;
+  overflow: hidden;
 }

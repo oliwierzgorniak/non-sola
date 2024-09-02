@@ -7,9 +7,14 @@ import Navbar from "@/components/pl/search/navbar/Navbar";
 import { useState } from "react";
 import { Chat as ChatType } from "@/fetchers/chatsFetcher";
 import styles from "./messages.module.css";
+import useSocketHandler from "@/components/pl/messages/chat/hooks/useSocketHandler";
+import socket from "@/socket";
+import { Message } from "@/fetchers/messagesFetcher";
 
 export default function Messages() {
   const [selectedChat, setSelectedChat] = useState<null | ChatType>(null);
+  const [moreMessages, setMoreMessages] = useState<Message[]>([]);
+  useSocketHandler(moreMessages, setMoreMessages, selectedChat);
 
   return (
     <div className={styles.container}>
@@ -17,7 +22,11 @@ export default function Messages() {
       <article className={styles.chatContainer}>
         <Sidebar setSelectedChat={setSelectedChat} />
         {selectedChat ? (
-          <Chat selectedChat={selectedChat} />
+          <Chat
+            selectedChat={selectedChat}
+            moreMessages={moreMessages}
+            setMoreMessages={setMoreMessages}
+          />
         ) : (
           <ChatNotSelected />
         )}

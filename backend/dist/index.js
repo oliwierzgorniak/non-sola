@@ -3,17 +3,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.redisClient = exports.prisma = void 0;
+exports.io = exports.redisClient = exports.prisma = void 0;
 const express_1 = __importDefault(require("express"));
 const node_http_1 = require("node:http");
 require("dotenv/config");
 const cors_1 = __importDefault(require("cors"));
+const socket_io_1 = require("socket.io");
 const client_1 = require("@prisma/client");
 const express_session_1 = __importDefault(require("express-session"));
 const redis_1 = require("redis");
 const connect_redis_1 = __importDefault(require("connect-redis"));
 const auth_1 = __importDefault(require("./routes/auth"));
 const messaging_1 = __importDefault(require("./routes/messaging"));
+const handleMessages_1 = __importDefault(require("./socket/handleMessages"));
 const app = (0, express_1.default)();
 app.set("trust proxy", 1);
 const corsOptions = {
@@ -22,6 +24,10 @@ const corsOptions = {
 };
 app.use((0, cors_1.default)(corsOptions));
 const server = (0, node_http_1.createServer)(app);
+const io = new socket_io_1.Server(server, {
+    cors: corsOptions,
+});
+exports.io = io;
 const prisma = new client_1.PrismaClient();
 exports.prisma = prisma;
 const redisClient = (0, redis_1.createClient)();
@@ -45,9 +51,12 @@ const sessionMiddleware = (0, express_session_1.default)({
     resave: false,
 });
 app.use(sessionMiddleware);
+io.engine.use(sessionMiddleware);
 app.use(express_1.default.json());
 app.use("/auth", auth_1.default);
 app.use("/messaging", messaging_1.default);
+// socket io
+(0, handleMessages_1.default)();
 server.listen(process.env.PORT, () => {
     console.log(`server running at http://localhost:${process.env.PORT}`);
 });

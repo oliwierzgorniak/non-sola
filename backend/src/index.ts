@@ -2,12 +2,14 @@ import express from "express";
 import { createServer } from "node:http";
 import "dotenv/config";
 import cors from "cors";
+import { Server } from "socket.io";
 import { PrismaClient } from "@prisma/client";
 import session from "express-session";
 import { createClient } from "redis";
 import RedisStore from "connect-redis";
 import authRouter from "./routes/auth";
 import messagingRouter from "./routes/messaging";
+import handleMessages from "./socket/handleMessages";
 
 const app = express();
 app.set("trust proxy", 1);
@@ -18,6 +20,9 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 const server = createServer(app);
+const io = new Server(server, {
+  cors: corsOptions,
+});
 const prisma = new PrismaClient();
 
 const redisClient = createClient();
@@ -42,13 +47,17 @@ const sessionMiddleware = session({
   resave: false,
 });
 app.use(sessionMiddleware);
+io.engine.use(sessionMiddleware);
 
 app.use(express.json());
 app.use("/auth", authRouter);
 app.use("/messaging", messagingRouter);
 
+// socket io
+handleMessages();
+
 server.listen(process.env.PORT, () => {
   console.log(`server running at http://localhost:${process.env.PORT}`);
 });
 
-export { prisma, redisClient };
+export { prisma, redisClient, io };
