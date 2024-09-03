@@ -17,8 +17,6 @@ export default function handleMessages() {
           String(message.receipient)
         );
 
-        console.log(message.content, message.receipient, senderId);
-
         if (recipientSocketId) {
           socket
             .to(recipientSocketId)

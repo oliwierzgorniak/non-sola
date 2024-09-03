@@ -15,6 +15,7 @@ const redis_1 = require("redis");
 const connect_redis_1 = __importDefault(require("connect-redis"));
 const auth_1 = __importDefault(require("./routes/auth"));
 const messaging_1 = __importDefault(require("./routes/messaging"));
+const ui_1 = __importDefault(require("./routes/ui"));
 const handleMessages_1 = __importDefault(require("./socket/handleMessages"));
 const app = (0, express_1.default)();
 app.set("trust proxy", 1);
@@ -55,6 +56,7 @@ io.engine.use(sessionMiddleware);
 app.use(express_1.default.json());
 app.use("/auth", auth_1.default);
 app.use("/messaging", messaging_1.default);
+app.use("/ui", ui_1.default);
 // socket io
 (0, handleMessages_1.default)();
 server.listen(process.env.PORT, () => {

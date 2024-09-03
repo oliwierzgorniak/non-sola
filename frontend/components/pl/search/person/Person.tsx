@@ -14,8 +14,8 @@ export default function Person({ name, img, age, id }: PersonProps) {
     <li className={styles.container}>
       <Link href={"/pl/person/" + id}>
         <Image
-          layout="fill"
-          objectFit="cover"
+          width={245.75}
+          height={327.66}
           src={img}
           alt={"zdjęcie osoby"}
           className={styles.img}

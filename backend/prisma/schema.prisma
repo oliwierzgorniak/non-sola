@@ -13,6 +13,10 @@ model User {
   name String
   password  String
   chats Int[]
+  age Int
+  description String?
+  img String
+  denomination String
 }
 
 model Message {

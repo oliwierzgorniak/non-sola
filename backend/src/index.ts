@@ -9,6 +9,7 @@ import { createClient } from "redis";
 import RedisStore from "connect-redis";
 import authRouter from "./routes/auth";
 import messagingRouter from "./routes/messaging";
+import uiRouter from "./routes/ui";
 import handleMessages from "./socket/handleMessages";
 
 const app = express();
@@ -52,6 +53,7 @@ io.engine.use(sessionMiddleware);
 app.use(express.json());
 app.use("/auth", authRouter);
 app.use("/messaging", messagingRouter);
+app.use("/ui", uiRouter);
 
 // socket io
 handleMessages();

@@ -107,4 +107,50 @@ router.post("/sendMessage", async (req, res) => {
   res.json({ result: "success", content: "Message sent" });
 });
 
+router.post("/addToChats", async (req, res) => {
+  // @ts-ignore
+  const userId = req.session.userId as number | undefined;
+  const contactId = req.body.contactId;
+
+  if (!userId) {
+    res.json({ result: "error", content: "No user id" });
+    return;
+  }
+
+  if (!contactId) {
+    res.json({ result: "error", content: "Contact id not provided" });
+    return;
+  }
+
+  if (userId == contactId) {
+    res.json({ result: "error", content: "You can't add to chat yourself" });
+    return;
+  }
+
+  const user = await prisma.user.findFirst({
+    where: {
+      id: userId,
+    },
+  });
+
+  if (!user) {
+    res.json({ result: "error", content: "User not found" });
+    return;
+  }
+
+  const newChats = [...user.chats, contactId];
+  const uniqueChats = [...new Set(newChats)];
+
+  await prisma.user.update({
+    data: {
+      chats: uniqueChats,
+    },
+    where: {
+      id: userId,
+    },
+  });
+
+  res.json({ result: "success", content: "User added to chats" });
+});
+
 export default router;

@@ -9,7 +9,6 @@ export default function useSocketHandler(
   selectedChat: Chat | null
 ) {
   socket.on("message", (message: { author: number; content: string }) => {
-    console.log(selectedChat, message.author);
     if (!selectedChat) return;
     if (message.author != selectedChat.id) return;
 

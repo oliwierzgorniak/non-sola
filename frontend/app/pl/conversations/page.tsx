@@ -6,9 +6,8 @@ import ChatNotSelected from "@/components/pl/messages/chatNotSelected/ChatNotSel
 import Navbar from "@/components/pl/search/navbar/Navbar";
 import { useState } from "react";
 import { Chat as ChatType } from "@/fetchers/chatsFetcher";
-import styles from "./messages.module.css";
+import styles from "./conversations.module.css";
 import useSocketHandler from "@/components/pl/messages/chat/hooks/useSocketHandler";
-import socket from "@/socket";
 import { Message } from "@/fetchers/messagesFetcher";
 
 export default function Messages() {

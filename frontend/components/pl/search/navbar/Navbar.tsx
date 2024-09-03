@@ -32,7 +32,7 @@ export default function Navbar() {
             <Link href="/pl/search">szukaj</Link>
           </li>
           <li>
-            <Link href="/pl/messages">wiadomości</Link>
+            <Link href="/pl/conversations">konwersacje</Link>
           </li>
           <li>
             <Link href="/pl/profile">profil</Link>
