@@ -7,6 +7,7 @@ export type UserData = {
   description: string;
   img: string;
   id: number;
+  isAdded: boolean;
 };
 
 export type Result = {
@@ -15,7 +16,9 @@ export type Result = {
 };
 
 export default async function profileFetcher(userId: string) {
-  const res = await fetch(`${SERVER_URL}/ui/profile?userId=${userId}`);
+  const res = await fetch(`${SERVER_URL}/ui/profile?userId=${userId}`, {
+    credentials: "include",
+  });
   const result = (await res.json()) as Result;
   return result;
 }

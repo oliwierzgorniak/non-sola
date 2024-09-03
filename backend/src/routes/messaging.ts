@@ -138,15 +138,27 @@ router.post("/addToChats", async (req, res) => {
     return;
   }
 
-  const newChats = [...user.chats, contactId];
-  const uniqueChats = [...new Set(newChats)];
+  const newChats1 = [...user.chats, contactId];
+  const uniqueChats1 = [...new Set(newChats1)];
 
   await prisma.user.update({
     data: {
-      chats: uniqueChats,
+      chats: uniqueChats1,
     },
     where: {
       id: userId,
+    },
+  });
+
+  const newChats2 = [...user.chats, userId];
+  const uniqueChats2 = [...new Set(newChats2)];
+
+  await prisma.user.update({
+    data: {
+      chats: uniqueChats2,
+    },
+    where: {
+      id: contactId,
     },
   });
 

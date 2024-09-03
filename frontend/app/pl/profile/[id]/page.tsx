@@ -24,7 +24,7 @@ export default function Profile({ params }: ProfileProps) {
 
   if (isLoading) return <p>Loading...</p>;
   if (data?.result == "error") return <p>There was an error</p>;
-  const { name, description, img, denomination, id } =
+  const { name, description, img, denomination, id, isAdded } =
     data?.content as UserData;
 
   return (
@@ -52,12 +52,14 @@ export default function Profile({ params }: ProfileProps) {
               </li>
             </ul>
             <button
+              className={isAdded ? styles.buttonDisabled : ""}
               onClick={async () => {
+                if (isAdded) return;
                 await addToChatsFetcher(id);
                 router.push("/pl/messages");
               }}
             >
-              Dodaj do konwersacji
+              {isAdded ? "Dodano do konwersacji" : "Dodaj do konwersacji"}
             </button>
           </div>
         </article>

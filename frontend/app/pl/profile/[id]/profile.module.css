@@ -54,3 +54,10 @@
   align-self: flex-end;
   height: min-content;
 }
+
+.buttonDisabled {
+  background: none;
+  border: 0.2em solid var(--text-color);
+  color: var(--text-color);
+  cursor: initial;
+}
