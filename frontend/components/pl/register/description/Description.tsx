@@ -1,9 +1,6 @@
 import { merriweather } from "@/fonts";
-import styles from "./password.module.css";
-import { useRouter } from "next/navigation";
-import { Dispatch, SetStateAction, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import styles from "./description.module.css";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import sharedStyles from "../../../../app/pl/register/register.module.css";
 
 type DescriptionProps = {
@@ -15,26 +12,39 @@ export default function Description({
   description,
   setDescription,
 }: DescriptionProps) {
-  // const router = useRouter();
   const [chars, setChars] = useState<number>(0);
+  const textAreaRef = useRef(null);
+  useEffect(() => {
+    if (textAreaRef.current) {
+      const $textArea = textAreaRef.current as HTMLTextAreaElement;
+      setChars($textArea.value.length);
+    }
+  }, []);
 
   return (
     <div className={sharedStyles.container}>
       <h2 className={merriweather.className}>Rejestracja</h2>
-      <label htmlFor="description">
+      <label className={styles.label} htmlFor="description">
         Opis
-        <textarea name="description" id="description"></textarea>
+        <textarea
+          ref={textAreaRef}
+          onChange={(e) => {
+            const length = e.target.value.length;
+
+            if (length <= 500) {
+              setDescription(e.target.value);
+              setChars(length);
+            } else {
+              e.target.value = description;
+            }
+          }}
+          name="description"
+          id="description"
+        >
+          {description}
+        </textarea>
       </label>
-      <span className={sharedStyles.error}>{chars}/500</span>
-      <button onClick={(e) => {}} className={sharedStyles.button}>
-        Dalej
-        <Image
-          width={34}
-          height={34}
-          src={"/arrow-right.svg"}
-          alt="strzałka w prawo"
-        />
-      </button>
+      <span className={sharedStyles.error}>{chars}/500 max</span>
     </div>
   );
 }
