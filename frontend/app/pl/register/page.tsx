@@ -10,10 +10,12 @@ import { useState } from "react";
 import Password from "@/components/pl/register/password/Password";
 import Description from "@/components/pl/register/description/Description";
 import Dots from "@/components/pl/register/dots/Dots";
+import ImageSection from "@/components/pl/register/image/Image";
 
 export default function Register() {
   const [currentSection, setCurrentSection] = useState(0);
   const [description, setDescription] = useState("");
+  const [img, setImg] = useState("");
 
   return (
     <div className={styles.outerContainer}>
@@ -22,7 +24,8 @@ export default function Register() {
       </Link>
       <main>
         {currentSection == 0 && <Password />}
-        {currentSection == 1 && (
+        {currentSection == 1 && <ImageSection img={img} setImg={setImg} />}
+        {currentSection == 2 && (
           <Description
             description={description}
             setDescription={setDescription}
