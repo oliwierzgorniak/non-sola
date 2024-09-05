@@ -7,10 +7,13 @@ import { merriweather } from "@/fonts";
 import { useRouter } from "next/navigation";
 import handleRegistration from "./handleRegistration";
 import { useState } from "react";
+import Password from "@/components/pl/register/password/Password";
+import Description from "@/components/pl/register/description/Description";
+import Dots from "@/components/pl/register/dots/Dots";
 
 export default function Register() {
-  const router = useRouter();
-  const [error, setError] = useState<string>("");
+  const [currentSection, setCurrentSection] = useState(0);
+  const [description, setDescription] = useState("");
 
   return (
     <div className={styles.outerContainer}>
@@ -18,38 +21,46 @@ export default function Register() {
         ← Strona główna
       </Link>
       <main>
-        <article className={styles.container}>
-          <h2 className={merriweather.className}>Rejestracja</h2>
-          <form action="">
-            <label htmlFor="name">
-              Imię
-              <input id="name" name="name" />
-            </label>
-            <label htmlFor="email">
-              Email
-              <input id="email" type="email" name="email" />
-            </label>
-            <label htmlFor="password">
-              Hasło
-              <input id="password" type="password" name="password" />
-            </label>
-            {error && <span className={styles.error}>{error}</span>}
-            <button
-              onClick={(e) => handleRegistration(router, e, setError)}
-              className={styles.button}
-            >
-              <Image
-                width={34}
-                height={34}
-                src={"/register.svg"}
-                alt="ikonka rejestracji"
-              />
-              Zarejestruj się
-            </button>
-          </form>
-          <Link href="/pl/login">Logowanie</Link>
-        </article>
+        {currentSection == 0 && <Password />}
+        {currentSection == 1 && (
+          <Description
+            description={description}
+            setDescription={setDescription}
+          />
+        )}
       </main>
+      <div className={styles.buttonsContainer}>
+        <button
+          onClick={(e) => {
+            setCurrentSection(currentSection - 1);
+          }}
+          style={{ visibility: currentSection == 0 ? "hidden" : "initial" }}
+          className={styles.button + " " + styles.buttonSecondary}
+        >
+          <Image
+            width={22}
+            height={22}
+            src={"/arrow-left.svg"}
+            alt="strzałka w lewo"
+          />
+          Do tyłu
+        </button>
+        <Dots currentSection={currentSection} />
+        <button
+          onClick={(e) => {
+            setCurrentSection(currentSection + 1);
+          }}
+          className={styles.button}
+        >
+          Dalej
+          <Image
+            width={24}
+            height={24}
+            src={"/arrow-right.svg"}
+            alt="strzałka w prawo"
+          />
+        </button>
+      </div>
     </div>
   );
 }

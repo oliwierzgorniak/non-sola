@@ -1,0 +1,16 @@
+.dotsContainer {
+  display: flex;
+  gap: 0.2em;
+}
+
+.dot {
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+  background-color: var(--text-color);
+}
+
+.dotCurrent {
+  background-color: var(--background-color);
+  border: 0.2em solid var(--text-color);
+}

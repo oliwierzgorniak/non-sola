@@ -17,6 +17,7 @@ model User {
   description String?
   img String
   denomination String
+  location Float[]
 }
 
 model Message {
