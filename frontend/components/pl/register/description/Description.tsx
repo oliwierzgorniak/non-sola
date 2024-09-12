@@ -1,6 +1,6 @@
 import { merriweather } from "@/fonts";
 import styles from "./description.module.css";
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import sharedStyles from "../../../../app/pl/register/register.module.css";
 import Buttons from "../buttons/Buttons";
 import { useRegisterStore } from "@/stores/register";
@@ -10,6 +10,9 @@ export default function Description() {
   const description = useRegisterStore((state) => state.description);
   const currentSection = useRegisterStore((state) => state.currentSection);
   const setDescription = useRegisterStore((state) => state.setDescription);
+  const increaseCurrentSection = useRegisterStore(
+    (state) => state.increaseCurrentSection
+  );
 
   return (
     <div style={{ display: currentSection == 2 ? "initial" : "none" }}>
@@ -35,7 +38,7 @@ export default function Description() {
         </label>
         <span className={sharedStyles.error}>{chars}/500 max</span>
       </div>
-      <Buttons section={2} handleButton={() => {}} />
+      <Buttons section={2} handleButton={increaseCurrentSection} />
     </div>
   );
 }

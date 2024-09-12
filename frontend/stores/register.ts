@@ -2,6 +2,7 @@ import { create } from "zustand";
 
 type RegisterStore = {
   name: string;
+  age: string;
   password: string;
   email: string;
   denomination: string;
@@ -10,6 +11,7 @@ type RegisterStore = {
   img: string | null;
   description: string;
   setName: (name: string) => void;
+  setAge: (age: string) => void;
   setEmail: (email: string) => void;
   setPassword: (password: string) => void;
   setDenomination: (denomination: string) => void;
@@ -22,6 +24,7 @@ type RegisterStore = {
 
 export const useRegisterStore = create<RegisterStore>((set) => ({
   name: "",
+  age: "",
   password: "",
   email: "",
   denomination: "",
@@ -30,6 +33,7 @@ export const useRegisterStore = create<RegisterStore>((set) => ({
   img: null,
   description: "",
   setName: (name) => set((state) => ({ ...state, name })),
+  setAge: (age) => set((state) => ({ ...state, age })),
   setPassword: (password) => set((state) => ({ ...state, password })),
   setEmail: (email) => set((state) => ({ ...state, email })),
   setDenomination: (denomination) =>

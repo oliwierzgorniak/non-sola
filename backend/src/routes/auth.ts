@@ -2,11 +2,18 @@ import { Router } from "express";
 import { prisma } from "../index";
 const router = Router();
 
-router.post("/signup", async (req, res) => {
-  if (!req.body?.email || !req.body?.password || !req.body?.name) {
-    res
-      .status(400)
-      .json({ result: "error", content: "Email, password or name missing" });
+router.post("/register", async (req, res) => {
+  if (
+    !req.body?.email ||
+    !req.body?.password ||
+    !req.body?.name ||
+    !req.body?.denomination ||
+    !req.body?.img
+  ) {
+    res.status(400).json({
+      result: "error",
+      content: "Email, password, img, denomination or name missing",
+    });
     return;
   }
 
@@ -15,6 +22,9 @@ router.post("/signup", async (req, res) => {
       email: req.body.email as string,
       name: req.body.name as string,
       password: req.body.password as string,
+      img: req.body.img as string,
+      denomination: req.body.denomination as string,
+      chats: [],
     },
   });
 

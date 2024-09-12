@@ -12,6 +12,7 @@ import Description from "@/components/pl/register/description/Description";
 import Dots from "@/components/pl/register/dots/Dots";
 import ImageSection from "@/components/pl/register/image/Image";
 import { useRegisterStore } from "@/stores/register";
+import Info from "@/components/pl/register/info/Info";
 
 export default function Register() {
   const currentSection = useRegisterStore((state) => state.currentSection);
@@ -39,9 +40,10 @@ export default function Register() {
       <Link href={"/pl"} className={styles.backLink}>
         ← Strona główna
       </Link>
-      <Password />
+      <Info />
       <ImageSection />
       <Description />
+      <Password />
     </div>
   );
 }

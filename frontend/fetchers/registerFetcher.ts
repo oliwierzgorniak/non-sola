@@ -15,7 +15,7 @@ export default async function registerFetcher(
   email: string,
   password: string
 ) {
-  const res = await fetch(SERVER_URL + "/auth/signup", {
+  const res = await fetch(SERVER_URL + "/auth/register", {
     method: "post",
     credentials: "include",
     headers: {
