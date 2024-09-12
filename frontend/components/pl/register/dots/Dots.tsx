@@ -7,26 +7,14 @@ type DotsProps = {
 export default function Dots({ currentSection }: DotsProps) {
   return (
     <div className={styles.dotsContainer}>
-      <div
-        className={
-          styles.dot + " " + (currentSection == 0 ? styles.dotCurrent : "")
-        }
-      ></div>
-      <div
-        className={
-          styles.dot + " " + (currentSection == 1 ? styles.dotCurrent : "")
-        }
-      ></div>
-      <div
-        className={
-          styles.dot + " " + (currentSection == 2 ? styles.dotCurrent : "")
-        }
-      ></div>
-      <div
-        className={
-          styles.dot + " " + (currentSection == 3 ? styles.dotCurrent : "")
-        }
-      ></div>
+      {[0, 1, 2].map((i) => (
+        <div
+          key={"dot-" + i}
+          className={
+            styles.dot + " " + (currentSection == i ? styles.dotCurrent : "")
+          }
+        ></div>
+      ))}
     </div>
   );
 }

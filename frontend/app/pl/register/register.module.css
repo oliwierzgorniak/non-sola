@@ -43,39 +43,6 @@
   border: none;
 }
 
-.buttonsContainer {
-  display: flex;
-  align-items: center;
-  margin-top: 1em;
-  gap: 2em;
-}
-
-.button {
-  align-items: center;
-  gap: 0.35em;
-  padding: 0.6em 1.3em;
-  /* background-color: var(--attention-color); */
-  font-size: 0.9rem;
-  border: none;
-  border-radius: 0.5rem;
-  font-weight: 700;
-  cursor: pointer;
-  text-decoration: none;
-  color: black;
-  display: flex;
-  width: min-content;
-  white-space: nowrap;
-  padding-right: 2.9em;
-  margin: auto;
-}
-
-.buttonSecondary {
-  background: none;
-  border: 0.2em solid var(--text-color);
-  color: var(--text-color);
-  font-size: 0.75rem;
-}
-
 .container a {
   color: var(--text-color);
   font-size: 1.2rem;
