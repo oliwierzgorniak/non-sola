@@ -7,7 +7,7 @@ type DotsProps = {
 export default function Dots({ currentSection }: DotsProps) {
   return (
     <div className={styles.dotsContainer}>
-      {[0, 1, 2, 3].map((i) => (
+      {[0, 1, 2, 3, 4].map((i) => (
         <div
           key={"dot-" + i}
           className={

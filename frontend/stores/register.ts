@@ -10,6 +10,7 @@ type RegisterStore = {
   currentSection: number;
   img: string | null;
   description: string;
+  location: null | { longitude: number; latitude: number };
   setName: (name: string) => void;
   setAge: (age: string) => void;
   setEmail: (email: string) => void;
@@ -20,6 +21,13 @@ type RegisterStore = {
   decreaseCurrentSection: () => void;
   setImg: (img: string) => void;
   setDescription: (description: string) => void;
+  setLocation: ({
+    longitude,
+    latitude,
+  }: {
+    longitude: number;
+    latitude: number;
+  }) => void;
 };
 
 export const useRegisterStore = create<RegisterStore>((set) => ({
@@ -29,9 +37,10 @@ export const useRegisterStore = create<RegisterStore>((set) => ({
   email: "",
   denomination: "",
   passwordError: "",
-  currentSection: 0,
+  currentSection: 3,
   img: null,
   description: "",
+  location: { longitude: 19.937, latitude: 50.059 },
   setName: (name) => set((state) => ({ ...state, name })),
   setAge: (age) => set((state) => ({ ...state, age })),
   setPassword: (password) => set((state) => ({ ...state, password })),
@@ -46,4 +55,5 @@ export const useRegisterStore = create<RegisterStore>((set) => ({
     set((state) => ({ ...state, currentSection: state.currentSection - 1 })),
   setImg: (img) => set((state) => ({ ...state, img })),
   setDescription: (description) => set((state) => ({ ...state, description })),
+  setLocation: (location) => set((state) => ({ ...state, location })),
 }));

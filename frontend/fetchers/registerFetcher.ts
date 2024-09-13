@@ -13,6 +13,7 @@ type Props = {
   description: string;
   email: string;
   password: string;
+  location: { longitude: number; latitude: number };
 };
 
 export default async function registerFetcher({
@@ -23,6 +24,7 @@ export default async function registerFetcher({
   description,
   email,
   password,
+  location,
 }: Props) {
   const res = await fetch(SERVER_URL + "/auth/register", {
     method: "post",
@@ -38,6 +40,7 @@ export default async function registerFetcher({
       description: description,
       email: email,
       password: password,
+      location: [location.latitude, location.longitude],
     }),
   });
   const result = (await res.json()) as Result;

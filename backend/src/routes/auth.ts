@@ -27,6 +27,7 @@ router.post("/register", async (req, res) => {
       denomination: req.body.denomination as string,
       age: req.body.age as number,
       description: req.body.description as string,
+      location: req.body.location as number[],
     },
   });
 

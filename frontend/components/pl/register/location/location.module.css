@@ -1,0 +1,13 @@
+.p {
+  max-width: 20rem;
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 1.5em;
+}
+
+.locationCollected {
+  background: none;
+  border: 0.2em solid var(--text-color);
+  color: var(--text-color);
+  cursor: initial;
+}

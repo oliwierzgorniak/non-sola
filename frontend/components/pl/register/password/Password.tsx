@@ -18,7 +18,7 @@ export default function Password() {
   const router = useRouter();
 
   return (
-    <div style={{ display: currentSection == 3 ? "initial" : "none" }}>
+    <div style={{ display: currentSection == 4 ? "initial" : "none" }}>
       <div className={sharedStyles.container}>
         <h2 className={merriweather.className}>Rejestracja</h2>
         <label htmlFor="email">
@@ -50,7 +50,7 @@ export default function Password() {
         {error && <span className={sharedStyles.error}>{error}</span>}
       </div>
       <Buttons
-        section={3}
+        section={4}
         handleButton={() => {
           if (password && email) {
             setPasswordError("");
