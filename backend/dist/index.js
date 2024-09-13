@@ -54,6 +54,7 @@ const sessionMiddleware = (0, express_session_1.default)({
 app.use(sessionMiddleware);
 io.engine.use(sessionMiddleware);
 app.use(express_1.default.json());
+app.use(express_1.default.json({ limit: "40mb" }));
 app.use("/auth", auth_1.default);
 app.use("/messaging", messaging_1.default);
 app.use("/ui", ui_1.default);

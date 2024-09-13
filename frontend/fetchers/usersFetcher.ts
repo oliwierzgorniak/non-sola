@@ -1,6 +1,6 @@
 import { SERVER_URL } from "../consts";
 
-type UserData = {
+export type User = {
   img: string;
   name: string;
   age: number;
@@ -9,11 +9,20 @@ type UserData = {
 
 type Result = {
   result: "success" | "error";
-  content: string | UserData;
+  content: string | User[];
 };
 
-export default async function usersFetcher(page: number) {
-  const res = await fetch(`${SERVER_URL}/ui/users?page=${page}`);
+export default async function usersFetcher(
+  minAge: number,
+  maxAge: number,
+  distance: number,
+  page: number | undefined
+) {
+  const res = await fetch(
+    `${SERVER_URL}/ui/users?minAge=${minAge}&maxAge=${maxAge}&distance=${distance}`,
+    { credentials: "include" }
+  );
   const result = (await res.json()) as Result;
+  console.log(result.content);
   return result;
 }

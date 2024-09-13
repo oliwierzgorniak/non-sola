@@ -37,7 +37,7 @@ export const useRegisterStore = create<RegisterStore>((set) => ({
   email: "",
   denomination: "",
   passwordError: "",
-  currentSection: 3,
+  currentSection: 0,
   img: null,
   description: "",
   location: { longitude: 19.937, latitude: 50.059 },

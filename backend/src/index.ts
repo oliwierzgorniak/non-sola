@@ -51,6 +51,7 @@ app.use(sessionMiddleware);
 io.engine.use(sessionMiddleware);
 
 app.use(express.json());
+app.use(express.json({ limit: "40mb" }));
 app.use("/auth", authRouter);
 app.use("/messaging", messagingRouter);
 app.use("/ui", uiRouter);

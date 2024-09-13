@@ -1,5 +1,7 @@
 import { Router } from "express";
 import { prisma } from "../index";
+import getDistance from "haversine";
+
 const router = Router();
 
 router.get("/profile", async (req, res) => {
@@ -45,8 +47,10 @@ router.get("/users", async (req, res) => {
   let minAge = Number(req.query.minAge);
   let maxAge = Number(req.query.maxAge);
   let distance = Number(req.query.distance);
-  let page = Number(req.query.page);
-  if (!page) page = 0;
+  // let page = Number(req.query.page);
+  // if (!page) page = 0;
+  // @ts-ignore
+  const userId = req.session.userId as number | undefined;
 
   if (!minAge) {
     res.json({
@@ -72,24 +76,45 @@ router.get("/users", async (req, res) => {
     return;
   }
 
-  // const users = await prisma.user.findMany(
-  //   {
-  //     where: {
-  //       age: {}
-  //     }
-  //   }
-  // );
+  if (!userId) {
+    res.json({ result: "error", content: "User id not provided" });
+    return;
+  }
 
-  const dataToSend = {
+  const user = await prisma.user.findFirst({
+    where: {
+      id: userId,
+    },
+  });
+
+  if (!user) {
+    res.json({ result: "error", content: "User not found" });
+    return;
+  }
+
+  const users = await prisma.user.findMany({
+    where: {
+      NOT: { id: userId },
+      age: { lte: maxAge, gte: minAge },
+    },
+  });
+
+  const usersInRadius = users.filter(({ location }) => {
+    const dist = getDistance(
+      { latitude: user.location[0], longitude: user.location[1] },
+      { latitude: location[0], longitude: location[1] }
+    );
+    return dist <= distance;
+  });
+
+  const dataToSend = usersInRadius.map((user) => ({
     age: user.age,
     name: user.name,
-    denomination: user.denomination,
-    description: user.description,
     img: user.img,
     id: user.id,
-    isAdded: user.chats.includes(userId),
-  };
+  }));
 
   res.json({ result: "success", content: dataToSend });
 });
+
 export default router;
