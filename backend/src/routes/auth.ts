@@ -8,6 +8,7 @@ router.post("/register", async (req, res) => {
     !req.body?.password ||
     !req.body?.name ||
     !req.body?.denomination ||
+    !req.body?.description ||
     !req.body?.img
   ) {
     res.status(400).json({
@@ -24,7 +25,8 @@ router.post("/register", async (req, res) => {
       password: req.body.password as string,
       img: req.body.img as string,
       denomination: req.body.denomination as string,
-      chats: [],
+      age: req.body.age as number,
+      description: req.body.description as string,
     },
   });
 

@@ -1,8 +1,9 @@
 import { merriweather } from "@/fonts";
-import Link from "next/link";
 import sharedStyles from "../../../../app/pl/register/register.module.css";
 import { useRegisterStore } from "../../../../stores/register";
 import Buttons from "../buttons/Buttons";
+import registerFetcher from "@/fetchers/registerFetcher";
+import { useRouter } from "next/navigation";
 
 export default function Password() {
   const error = useRegisterStore((state) => state.passwordError);
@@ -12,9 +13,9 @@ export default function Password() {
   const setEmail = useRegisterStore((state) => state.setEmail);
   const setPassword = useRegisterStore((state) => state.setPassword);
   const setPasswordError = useRegisterStore((state) => state.setPasswordError);
-  const increaseCurrentSection = useRegisterStore(
-    (state) => state.increaseCurrentSection
-  );
+  const store = useRegisterStore();
+
+  const router = useRouter();
 
   return (
     <div style={{ display: currentSection == 3 ? "initial" : "none" }}>
@@ -47,14 +48,14 @@ export default function Password() {
           />
         </label>
         {error && <span className={sharedStyles.error}>{error}</span>}
-        <Link href="/pl/login">Logowanie</Link>
       </div>
       <Buttons
         section={3}
         handleButton={() => {
           if (password && email) {
             setPasswordError("");
-            increaseCurrentSection();
+            registerFetcher(store);
+            router.push("/pl/search");
           } else {
             setPasswordError("Please fill all the fields");
           }
