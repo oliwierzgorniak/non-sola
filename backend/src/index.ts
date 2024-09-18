@@ -10,6 +10,7 @@ import RedisStore from "connect-redis";
 import authRouter from "./routes/auth";
 import messagingRouter from "./routes/messaging";
 import uiRouter from "./routes/ui";
+import userRouter from "./routes/user";
 import handleMessages from "./socket/handleMessages";
 
 const app = express();
@@ -55,6 +56,7 @@ app.use(express.json({ limit: "40mb" }));
 app.use("/auth", authRouter);
 app.use("/messaging", messagingRouter);
 app.use("/ui", uiRouter);
+app.use("/user", userRouter);
 
 // socket io
 handleMessages();

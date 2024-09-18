@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import styles from "./profile.module.css";
+import styles from "./id.module.css";
 import profileFetcher, { Result, UserData } from "@/fetchers/profileFetcher";
 import Navbar from "@/components/pl/search/navbar/Navbar";
 import addToChatsFetcher from "../../../../fetchers/addToChatsFetcher";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import useSWR from "swr";
 import { merriweather } from "@/fonts";
 
@@ -15,7 +15,7 @@ type ProfileProps = {
   };
 };
 
-export default function Profile({ params }: ProfileProps) {
+export default function Id({ params }: ProfileProps) {
   const router = useRouter();
 
   const { data, isLoading } = useSWR("/ui/profile", () =>
@@ -35,7 +35,7 @@ export default function Profile({ params }: ProfileProps) {
           <Image
             width={320}
             height={480}
-            src={`/people/${img}`}
+            src={img}
             alt={"zdjęcie osoby"}
             className={styles.img}
           />
@@ -56,7 +56,7 @@ export default function Profile({ params }: ProfileProps) {
               onClick={async () => {
                 if (isAdded) return;
                 await addToChatsFetcher(id);
-                router.push("/pl/messages");
+                router.push("/pl/conversations");
               }}
             >
               {isAdded ? "Dodano do konwersacji" : "Dodaj do konwersacji"}

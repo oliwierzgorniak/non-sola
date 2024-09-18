@@ -20,7 +20,7 @@ export default function Sidebar({ setSelectedChat }: SidebarProps) {
       <ul>
         {users.map((user) => (
           <li key={user.id}>
-            <button onClick={() => setSelectedChat(user)}>Karol</button>
+            <button onClick={() => setSelectedChat(user)}>{user.name}</button>
           </li>
         ))}
       </ul>

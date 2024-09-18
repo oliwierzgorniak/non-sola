@@ -12,6 +12,8 @@
   display: flex;
   gap: 1em;
   align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
 }
 
 .leftTextContainer {

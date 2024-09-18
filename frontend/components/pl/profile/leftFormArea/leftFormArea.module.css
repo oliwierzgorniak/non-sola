@@ -1,0 +1,15 @@
+.container {
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  padding: 1.8em;
+  border-radius: var(--border-radius);
+  gap: 1.4em;
+}
+
+.container label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: 1.1rem;
+}

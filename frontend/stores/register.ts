@@ -10,7 +10,7 @@ type RegisterStore = {
   currentSection: number;
   img: string | null;
   description: string;
-  location: null | { longitude: number; latitude: number };
+  location: { longitude: number; latitude: number };
   setName: (name: string) => void;
   setAge: (age: string) => void;
   setEmail: (email: string) => void;

@@ -117,4 +117,36 @@ router.get("/users", async (req, res) => {
   res.json({ result: "success", content: dataToSend });
 });
 
+router.get("/myProfile", async (req, res) => {
+  // @ts-ignore
+  const userId = req.session.userId as number | undefined;
+
+  if (!userId) {
+    res.json({ result: "error", content: "User id not provided" });
+    return;
+  }
+
+  const user = await prisma.user.findFirst({
+    where: {
+      id: userId,
+    },
+  });
+
+  if (!user) {
+    res.json({ result: "error", content: "User not found" });
+    return;
+  }
+
+  const dataToSend = {
+    age: user.age,
+    name: user.name,
+    denomination: user.denomination,
+    description: user.description,
+    img: user.img,
+    location: user.location,
+  };
+
+  res.json({ result: "success", content: dataToSend });
+});
+
 export default router;

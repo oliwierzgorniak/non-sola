@@ -10,7 +10,7 @@ export default function Navbar() {
   const router = useRouter();
   return (
     <nav className={styles.navbar}>
-      <div className={styles.leftContainer}>
+      <Link className={styles.leftContainer} href={"/pl"}>
         <Image
           width={59}
           height={67}
@@ -25,7 +25,7 @@ export default function Navbar() {
             portal randkowy dla protestantów
           </p>
         </div>
-      </div>
+      </Link>
       <div className={styles.rightContainer}>
         <ul>
           <li>

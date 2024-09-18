@@ -21,7 +21,7 @@
   flex-direction: column;
   justify-content: flex-end;
   max-height: 100%;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 
 .messagesContainer ul {
@@ -38,11 +38,11 @@
   background: none;
 }
 
-.messagesContainer ul::-webkit-scrollbar-thumb,
+/* .messagesContainer ul::-webkit-scrollbar-thumb,
 .messagesContainer ul::-moz-scrollbar-thumb,
 .messagesContainer ul::-ms-scrollbar-thumb {
   background: red;
-}
+} */
 
 .messagesContainer li {
   list-style-type: none;

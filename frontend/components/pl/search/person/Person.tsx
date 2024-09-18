@@ -12,7 +12,7 @@ type PersonProps = {
 export default function Person({ name, img, age, id }: PersonProps) {
   return (
     <li className={styles.container}>
-      <Link href={"/pl/person/" + id}>
+      <Link href={"/pl/profile/" + id}>
         <Image
           width={245.75}
           height={327.66}

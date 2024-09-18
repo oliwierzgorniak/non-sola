@@ -46,6 +46,7 @@ h6 {
   --background-color: #202a44;
   --background-color-variation: #35415f;
   --text-color: #fffff0;
+  --button-color: #efefef;
   --primary-color: #485829;
   --primary-color-variation: #43502a;
   --attention-color: #ffd700;
@@ -68,6 +69,7 @@ button {
   border: none;
   font-weight: 700;
   cursor: pointer;
+  background-color: var(--button-color);
 }
 
 a {

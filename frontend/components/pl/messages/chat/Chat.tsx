@@ -60,6 +60,7 @@ export default function Chat({
         <button
           onClick={() => {
             const $input = inputRef.current as unknown as HTMLInputElement;
+            if ($input.value.length == 0) return;
             const newMessage = { content: $input.value, isUsers: true };
             setMoreMessages([...moreMessages, newMessage]);
             socket.emit("message", {
