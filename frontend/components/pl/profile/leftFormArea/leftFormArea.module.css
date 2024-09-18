@@ -13,3 +13,12 @@
   font-weight: 500;
   font-size: 1.1rem;
 }
+
+.container input {
+  width: 20rem;
+  padding: 0.2em;
+}
+
+.container textarea {
+  width: 100%;
+}

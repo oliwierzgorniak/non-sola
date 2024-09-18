@@ -86,6 +86,7 @@ export default function LeftFormArea(props: Props) {
           name="description"
           id="description"
           value={description}
+          rows={10}
         ></textarea>
       </label>
     </div>
