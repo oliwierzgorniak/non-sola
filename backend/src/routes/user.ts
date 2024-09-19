@@ -5,7 +5,6 @@ const router = Router();
 router.post("/update", async (req, res) => {
   // @ts-ignore
   const userId = req.session.userId as number | undefined;
-  console.log(req.body);
 
   if (
     !req.body?.location ||

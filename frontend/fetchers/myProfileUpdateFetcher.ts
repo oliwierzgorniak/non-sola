@@ -7,7 +7,7 @@ export type Result = {
 
 type Data = {
   name: string;
-  age: string;
+  age: number;
   denomination: string;
   description: string;
   img: string;
