@@ -19,5 +19,5 @@
   width: 18ch;
   overflow: hidden;
   border-radius: 0.4em;
-  background-color: var(--text-color);
+  background-color: var(--button-color);
 }

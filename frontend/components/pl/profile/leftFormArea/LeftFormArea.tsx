@@ -51,6 +51,8 @@ export default function LeftFormArea(props: Props) {
           name="age"
           value={age}
           required
+          min={18}
+          max={120}
           type="number"
           onChange={(e) => {
             setAge(e.target.value);
@@ -86,7 +88,7 @@ export default function LeftFormArea(props: Props) {
           name="description"
           id="description"
           value={description}
-          rows={10}
+          rows={11}
         ></textarea>
       </label>
     </div>
