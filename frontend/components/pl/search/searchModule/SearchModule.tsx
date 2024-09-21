@@ -4,18 +4,6 @@ import useSWR from "swr";
 import { useState } from "react";
 import usersFetcher, { User } from "@/fetchers/usersFetcher";
 
-// const testPersons = [
-//   { name: "Wiktoria", age: 21, img: "/people/12.jpg", id: 12 },
-//   { name: "Wiktoria", age: 21, img: "/people/12.jpg", id: 12 },
-//   { name: "Wiktoria", age: 21, img: "/people/12.jpg", id: 12 },
-//   { name: "Wiktoria", age: 21, img: "/people/12.jpg", id: 12 },
-//   { name: "Wiktoria", age: 21, img: "/people/12.jpg", id: 12 },
-//   { name: "Wiktoria", age: 21, img: "/people/12.jpg", id: 12 },
-//   { name: "Wiktoria", age: 21, img: "/people/12.jpg", id: 12 },
-//   { name: "Wiktoria", age: 21, img: "/people/12.jpg", id: 12 },
-//   { name: "Wiktoria", age: 21, img: "/people/12.jpg", id: 12 },
-// ];
-
 export default function SearchModule() {
   const [minAge, setMinAge] = useState(18);
   const [maxAge, setMaxAge] = useState(25);

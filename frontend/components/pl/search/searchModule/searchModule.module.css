@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   max-width: var(--max-width);
-  padding: 5em var(--horizontal-padding);
+  padding: 4em var(--horizontal-padding);
 }
 
 .filtersContainer {
@@ -62,4 +62,20 @@
   padding: 0;
   gap: 1.5em;
   padding: 2em 0;
+}
+
+@media screen and (max-width: 384px) {
+  .filtersContainer {
+    padding-top: 1em;
+  }
+
+  .filtersContainer form {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+  }
+
+  .searchButton {
+    grid-column: 1/3;
+    margin: 0;
+  }
 }
