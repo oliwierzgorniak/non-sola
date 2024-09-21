@@ -80,4 +80,12 @@
   .rightContainer {
     margin-left: 0;
   }
+
+  .rightContainer ul {
+    gap: 0.8em;
+  }
+
+  .rightContainer a {
+    font-size: 1.15rem;
+  }
 }

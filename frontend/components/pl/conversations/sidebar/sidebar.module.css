@@ -1,0 +1,49 @@
+.container {
+  background-color: var(--primary-color);
+  padding: 1em;
+  border-radius: 0.4em;
+  min-height: 100%;
+}
+
+.container ul {
+  padding: 0;
+}
+
+.container li {
+  list-style-type: none;
+}
+
+.container button {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 18ch;
+  overflow: hidden;
+  border-radius: 0.4em;
+  background-color: var(--button-color);
+}
+
+@media screen and (max-width: 534px) {
+  .container {
+    max-width: calc(100vw - 2 * var(--horizontal-padding));
+    padding-bottom: 0.2em;
+  }
+
+  .container ul {
+    display: flex;
+    overflow-y: auto;
+    gap: 0.5em;
+    padding-bottom: 0.8em;
+  }
+
+  .container button {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 40rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    padding-bottom: 0.4em;
+  }
+}
