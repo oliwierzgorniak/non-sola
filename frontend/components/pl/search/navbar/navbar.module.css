@@ -76,4 +76,8 @@
     flex-direction: column;
     gap: 1.5em;
   }
+
+  .rightContainer {
+    margin-left: 0;
+  }
 }

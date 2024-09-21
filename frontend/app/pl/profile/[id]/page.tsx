@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import styles from "./id.module.css";
-import profileFetcher, { Result, UserData } from "@/fetchers/profileFetcher";
+import profileFetcher, { UserData } from "@/fetchers/profileFetcher";
 import Navbar from "@/components/pl/search/navbar/Navbar";
 import addToChatsFetcher from "../../../../fetchers/addToChatsFetcher";
 import { useRouter } from "next/navigation";
