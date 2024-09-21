@@ -1,12 +1,11 @@
 .container {
   display: flex;
   gap: 1em;
-  margin-top: 4em;
-  padding: 0 var(--horizontal-padding);
+  padding: 4em var(--horizontal-padding) 6em var(--horizontal-padding);
 }
 
 .img {
-  max-width: 25rem;
+  max-width: 21rem;
   height: 100%;
   object-fit: cover;
   aspect-ratio: 6/9;
@@ -46,7 +45,6 @@
 }
 
 .description {
-  /* overflow: scroll; */
   margin-bottom: 1em;
 }
 
@@ -60,4 +58,10 @@
   border: 0.2em solid var(--text-color);
   color: var(--text-color);
   cursor: initial;
+}
+
+@media screen and (max-width: 584px) {
+  .container {
+    flex-direction: column;
+  }
 }

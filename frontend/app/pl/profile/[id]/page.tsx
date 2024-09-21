@@ -33,8 +33,8 @@ export default function Id({ params }: ProfileProps) {
       <main>
         <article className={styles.container}>
           <Image
-            width={320}
-            height={480}
+            width={273}
+            height={409.5}
             src={img}
             alt={"zdjęcie osoby"}
             className={styles.img}
