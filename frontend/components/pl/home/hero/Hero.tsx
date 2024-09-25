@@ -15,7 +15,7 @@ export default function Hero() {
             Znużyły Cię bezowocne poszukiwania? Poznaj protestantów, którzy też
             szukają życiowego partnera za darmo.
           </p>
-          <Button href="/register">
+          <Button href="/pl/register">
             <Image
               width={44}
               height={44}

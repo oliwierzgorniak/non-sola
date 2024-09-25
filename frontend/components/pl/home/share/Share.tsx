@@ -21,7 +21,7 @@ export default function Share() {
           Przyczyń się do powstawania nowych par i rodzin. Dzięki twojej pomocy
           portal może zdobyć nowych członków.
         </p>
-        <Button href="/flyer.pdf">
+        <Button href="/Non sola - leaflet.pdf" isTargetBlank={true}>
           <Image width={39} height={39} src={"/pdf.svg"} alt="pdf icon" />
           Zobacz ultokę
         </Button>

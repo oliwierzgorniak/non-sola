@@ -1,3 +1,4 @@
+"use client";
 import chatsFetcher from "@/fetchers/chatsFetcher";
 import useSWR from "swr";
 import styles from "./sidebar.module.css";

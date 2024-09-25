@@ -3,8 +3,6 @@ import Image from "next/image";
 import styles from "./chat.module.css";
 import messagesFetcher, { Message } from "@/fetchers/messagesFetcher";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
-import sendMessageFetcher from "@/fetchers/sendMessageFetcher";
-import useSocketHandler from "./hooks/useSocketHandler";
 import socket from "@/socket";
 
 type ChatType = {
@@ -23,8 +21,9 @@ export default function Chat({
   moreMessages,
   setMoreMessages,
 }: ChatProps) {
-  const { data, isLoading } = useSWR("/messaging/messages", () =>
-    messagesFetcher(selectedChat.id)
+  const { data, isLoading } = useSWR(
+    `/messaging/messages?contactId=${selectedChat.id}`,
+    () => messagesFetcher(selectedChat.id)
   );
   const inputRef = useRef(null);
 

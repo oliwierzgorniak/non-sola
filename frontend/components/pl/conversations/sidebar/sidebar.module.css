@@ -3,6 +3,7 @@
   padding: 1em;
   border-radius: 0.4em;
   min-height: 100%;
+  min-width: calc(18ch + 2 * 1em);
 }
 
 .container ul {
@@ -20,6 +21,7 @@
   overflow: hidden;
   border-radius: 0.4em;
   background-color: var(--button-color);
+  margin-bottom: 0.6em;
 }
 
 @media screen and (max-width: 534px) {
